@@ -1,19 +1,23 @@
 from django.test import TestCase
-from optimal_provider.models import Provider
+from optimal_provider.models import Currencies
 
 
 class HomePageTest(TestCase):
+
     def test_uses_home_template(self):
         response = self.client.get('/')
         self.assertTemplateUsed(response, 'home.html')
 
 
-class ProviderTest(TestCase):
+class CurrencyTest(TestCase):
 
-    def test_saving_and_retrieving_providers(self):
-        first_provider = Provider()
-        first_provider.url = 'http://mock.io/232323'
+    def test_saving_and_retrieving_exchange_rate(self):
+        exchange_rate = Currencies()
+        exchange_rate.provider = 'http://mock.io/232323',
+        exchange_rate.rate = 4.14234
+        exchange_rate.code = 'usd'
+        exchange_rate.save()
 
-        first_provider.save()
+        saved_exchange_rate = Currencies.objects.all()
 
-        self.assertEqual(first_provider.url, 'http://mock.io/232323')
+        self.assertEqual(saved_exchange_rate.count(), 1)

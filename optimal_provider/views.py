@@ -1,14 +1,13 @@
-from django.db.models import Sum
 from django.shortcuts import render
-from optimal_provider.models import Currencies
+from optimal_provider.CurrencyManager import CurrencyManager
 
 
 def home_page(request):
-    provider = Currencies.objects.values('provider').annotate(
-        sum=Sum('rate')).order_by('-sum').first()
+    currency_manager = CurrencyManager()
+    provider = currency_manager.get_optimal_provider()
 
     currencies = {}
     if provider:
-        currencies = Currencies.objects.filter(provider=provider['provider'])
+        currencies = currency_manager.get_all(provider)
 
     return render(request, 'home.html', {'currencies': currencies, 'provider': provider})

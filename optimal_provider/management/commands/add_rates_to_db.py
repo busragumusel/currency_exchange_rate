@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
-from optimal_provider.adaptors.AAdaptor import AAdaptor
-from optimal_provider.adaptors.BAdaptor import BAdaptor
+from optimal_provider.adaptors.MockProviderOneAdaptor import MockProviderOneAdaptor
+from optimal_provider.adaptors.MockProviderTwoAdaptor import MockProviderTwoAdaptor
 from optimal_provider.adaptors.strategy.GetRateList import GetRateList
 from optimal_provider.models import Currencies
 
@@ -12,8 +12,8 @@ class Command(BaseCommand):
         """Handle command"""
 
         adaptors = [
-            AAdaptor,
-            BAdaptor
+            MockProviderOneAdaptor,
+            MockProviderTwoAdaptor
         ]
 
         for adaptor in adaptors:

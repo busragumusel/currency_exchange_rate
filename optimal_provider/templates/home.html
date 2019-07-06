@@ -7,19 +7,15 @@
     <body>
         <table>
             {% if provider %}
-                {{ provider.provider }} | sum: {{ provider.sum }}
-            {% else %}
-                You haven't run the command yet!
+                <b>Optimal Provider's url:</b> {{ provider.provider }}
             {% endif %}
-            {% if currencies %}
-                {% for currency in currencies %}
-                    <tr>
-                        <td>{{ forloop.counter }}</td>
-                        <td>{{ currency.code }}</td>
-                        <td>{{ currency.rate }}</td>
-                    </tr>
-                {% endfor %}
-            {% endif %}
+            <br>
+            {% for currency in currencies %}
+                <tr>
+                    <td><b>{{ currency.code }}</b></td>
+                    <td>{{ currency.rate }}</td>
+                </tr>
+            {% endfor %}
         </table>
     </body>
 </html>
