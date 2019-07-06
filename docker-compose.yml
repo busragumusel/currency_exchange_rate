@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  web:
+    build: .
+    command: python ./manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/usr/src/app/
+    ports:
+      - 8000:8000
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=foo
+      - SQL_ENGINE=django.db.backends.postgresql
+      - SQL_DATABASE=currency_exchange_rate_dev
+      - SQL_USER=currency_exchange_rate
+      - SQL_PASSWORD=currency_exchange_rate
+      - SQL_HOST=db
+      - SQL_PORT=5432
+      - DATABASE=postgres
+    depends_on:
+      - db
+  db:
+    image: postgres:11.2-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=currency_exchange_rate
+      - POSTGRES_PASSWORD=currency_exchange_rate
+      - POSTGRES_DB=currency_exchange_rate_dev
+
+volumes:
+  postgres_data:

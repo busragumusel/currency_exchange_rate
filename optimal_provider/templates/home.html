@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Optimal Currency Rate</title>
+    </head>
+    <body>
+        <table>
+            {% if provider %}
+                {{ provider.provider }} | sum: {{ provider.sum }}
+            {% else %}
+                You haven't run the command yet.
+            {% endif %}
+            {% if currencies %}
+                {% for currency in currencies %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ currency.code }}</td>
+                        <td>{{ currency.rate }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+    </body>
+</html>
