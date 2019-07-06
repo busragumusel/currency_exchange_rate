@@ -13,5 +13,6 @@ fi
 
 python manage.py flush --no-input
 python manage.py migrate
+python manage.py add_rates_to_db
 
 exec "$@"
