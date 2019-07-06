@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
         <title>Optimal Currency Rate</title>
     </head>
     <body>
-        <table>
-            {% if provider %}
-                <b>Optimal Provider's url:</b> {{ provider.provider }}
-            {% endif %}
-            <br>
-            {% for currency in currencies %}
-                <tr>
-                    <td><b>{{ currency.code }}</b></td>
-                    <td>{{ currency.rate }}</td>
-                </tr>
-            {% endfor %}
-        </table>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-ml-12">
+                    <table class="table">
+                        {% if provider %}
+                            <tr>
+                                <td><b>Optimal Provider's url:</b></td>
+                                <td>{{ provider.provider }}</td>
+                            </tr>
+                        {% endif %}
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <table class="table">
+                        {% for currency in currencies %}
+                            <tr>
+                                <td><b>{{ currency.code }}</b></td>
+                                <td>{{ currency.rate }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
