@@ -10,7 +10,7 @@ class BAdaptor(AbstractAdaptor):
     def all(self):
         return self.provider.get_all()
 
-    def provider_name(self):
-        return 'bProvider'
+    def provider_url(self):
+        return 'http://www.mocky.io/v2/5d19ec932f00004e00fd7326'
 
 

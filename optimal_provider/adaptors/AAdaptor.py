@@ -10,5 +10,5 @@ class AAdaptor(AbstractAdaptor):
     def all(self):
         return self.provider.get()
 
-    def provider_name(self):
-        return 'aProvider'
+    def provider_url(self):
+        return 'http://www.mocky.io/v2/5d19ec932f00004e00fd7326'

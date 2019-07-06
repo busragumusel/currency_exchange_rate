@@ -1,4 +1,4 @@
-class GetCurrencies:
+class GetRateList:
     def __init__(self, adaptor):
         self._strategy = adaptor
 

@@ -8,5 +8,5 @@ class AbstractAdaptor(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def provider_name(self):
+    def provider_url(self):
         pass
