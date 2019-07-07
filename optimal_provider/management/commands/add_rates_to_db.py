@@ -21,5 +21,6 @@ class Command(BaseCommand):
             provider_url = adaptor_instance.provider_url()
             data = GetRateList(adaptor_instance).all()
 
-            for currency in data:
-                ExchangeRate.objects.create(provider=provider_url, code=currency['code'], rate=currency['rate'])
+            if ExchangeRate.objects.filter(provider=provider_url).count() == 0:
+                for currency in data:
+                    ExchangeRate.objects.create(provider=provider_url, code=currency['code'], rate=currency['rate'])
