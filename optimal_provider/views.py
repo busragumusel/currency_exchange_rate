@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from optimal_provider.CurrencyManager import CurrencyManager
+from optimal_provider.ExchangeRateManager import ExchangeRateManager
 
 
 def home_page(request):
-    currency_manager = CurrencyManager()
+    currency_manager = ExchangeRateManager()
     provider = currency_manager.get_optimal_provider()
 
     currencies = {}
