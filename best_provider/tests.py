@@ -1,6 +1,6 @@
 from django.test import TestCase
-from optimal_provider.models import ExchangeRate
-from optimal_provider.ExchangeRateManager import ExchangeRateManager
+from best_provider.models import ExchangeRate
+from best_provider.ExchangeRateManager import ExchangeRateManager
 from django.core.management import call_command
 
 
@@ -39,7 +39,7 @@ class CommandsTestCase(TestCase):
 
 class ExchangeRateTest(TestCase):
 
-    def test_find_optimal_provider(self):
+    def test_find_best_provider(self):
         exchange_rate = ExchangeRate()
         exchange_rate.provider = 'http://www.mocky.io/v2/5d19ec932f00004e00fd7326'
         exchange_rate.code = 'usd'
@@ -77,7 +77,7 @@ class ExchangeRateTest(TestCase):
         exchange_rate6.save()
 
         exchange_rate_manager = ExchangeRateManager()
-        self.assertEqual(exchange_rate_manager.get_optimal_provider()['provider'],
+        self.assertEqual(exchange_rate_manager.get_best_provider()['provider'],
                          'http://www.mocky.io/v2/5d19ec932f00004e00fd7326')
 
     def test_get_exchange_rates_from_provider(self):

@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from optimal_provider.ExchangeRateManager import ExchangeRateManager
+from best_provider.ExchangeRateManager import ExchangeRateManager
 
 
 def home_page(request):
     currency_manager = ExchangeRateManager()
-    provider = currency_manager.get_optimal_provider()
+    provider = currency_manager.get_best_provider()
 
     currencies = {}
     if provider:

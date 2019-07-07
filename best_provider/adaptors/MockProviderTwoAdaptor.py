@@ -1,5 +1,5 @@
-from optimal_provider.adaptors.AbstractAdaptor import AbstractAdaptor
-from optimal_provider.adaptors.providers.MockProviderTwo import MockProviderTwo
+from best_provider.adaptors.AbstractAdaptor import AbstractAdaptor
+from best_provider.adaptors.providers.MockProviderTwo import MockProviderTwo
 
 
 class MockProviderTwoAdaptor(AbstractAdaptor):

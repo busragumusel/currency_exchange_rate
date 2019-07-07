@@ -1,8 +1,8 @@
 from django.core.management.base import BaseCommand
-from optimal_provider.adaptors.MockProviderOneAdaptor import MockProviderOneAdaptor
-from optimal_provider.adaptors.MockProviderTwoAdaptor import MockProviderTwoAdaptor
-from optimal_provider.adaptors.strategy.GetRateList import GetRateList
-from optimal_provider.models import ExchangeRate
+from best_provider.adaptors.MockProviderOneAdaptor import MockProviderOneAdaptor
+from best_provider.adaptors.MockProviderTwoAdaptor import MockProviderTwoAdaptor
+from best_provider.adaptors.strategy.GetRateList import GetRateList
+from best_provider.models import ExchangeRate
 
 
 class Command(BaseCommand):
